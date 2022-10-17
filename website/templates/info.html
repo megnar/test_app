@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    </head>
+    <body>
+        <h1>Info Page</h1>
+        <tbody>
+            {% for key, value in bin.items() %}
+             <tr>
+                 <p> {{ key }}: {{value }} </p>
+             </tr>
+            {% endfor %}
+        </tbody>
+        <form action="#" method="post">
+            <h1>Back to the home page</h1>
+            <button>Go home page</button>
+        </form>
+    </body>
+</html>
+
