@@ -8,10 +8,10 @@ mutex = threading.Lock()
 
 res = {}
 
-@views.route('/card/<nmb>')
-def card(nmb):
-    if (correctCard(nmb) == True):
-        info = getInformation(nmb)
+@views.route('/card/<nm>')
+def card(nm):
+    if (correctCard(nm) == True):
+        info = getInformation(nm)
         if (info[0] == False):
             abort(500, 'No such card in database')   
 
@@ -39,9 +39,9 @@ def info():
 @views.route('/', methods = ['POST', 'GET'])
 def home():
     if request.method == "POST":
-        nmb = request.form["nm"]
-        if (correctCard(nmb) == True):
-            info = getInformation(nmb)
+        nm = request.form["nm"]
+        if (correctCard(nm) == True):
+            info = getInformation(nm)
             if (info[0] == False):
                 abort(500, 'No such card in database') 
                             
