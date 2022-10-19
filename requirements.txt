@@ -6,5 +6,3 @@ Flask-SQLALchemy==3.0.2
 SQLALchemy==1.4.41
 
 
-
-
