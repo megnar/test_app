@@ -1,7 +1,3 @@
-from flask import Flask
-from sqlalchemy import create_engine
-from flask_sqlalchemy import SQLAlchemy
-import pandas as pd
 from .__init__ import file_db
 import os
 

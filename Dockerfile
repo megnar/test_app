@@ -1,12 +1,10 @@
-FROM python:alpine
+FROM python:3
 
 WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r requirements.txt
-
-RUN sudo apt install python-pytest
+RUN pip3 install -r req.txt
 
 EXPOSE 5000
 

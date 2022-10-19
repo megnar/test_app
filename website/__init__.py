@@ -9,9 +9,8 @@ file_db = create_engine("sqlite:///mydatabase.db")
 def create_database():
     if (os.path.exists('mydatabase.db')):
         os.remove ('mydatabase.db')
-    data = pd.read_csv("data.csv")
-    newdata = data.head(15)    
-    newdata.to_sql("bankInfo", file_db)
+    data = pd.read_csv("data.csv")        
+    data.to_sql("bankInfo", file_db)
     return file_db
 
 def create_app():

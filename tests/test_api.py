@@ -24,6 +24,7 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(resp.status_code, 200)
         print("Test 1 OK")
 
+
     def test_2(self):
         resp = requests.post(self.URL, data=self.number)
         self.assertEqual(resp.status_code,200)
@@ -37,23 +38,27 @@ class TestAPI(unittest.TestCase):
         self.assertEqual(mylist, self.test2)
         print("Test 2 OK")
 
+
     def test_3(self):
         resp = requests.post(self.URL, data=self.unvalid_number1)
         self.assertEqual(resp.status_code,500)
         self.assertEqual(re.findall(r'\>(.*?)\<', resp.text)[2], "Incorrect number")
         print("Test 3 OK")
 
+
     def test_4(self):
         resp = requests.post(self.URL, data=self.unvalid_number2)
         self.assertEqual(resp.status_code,500)
         self.assertEqual(re.findall(r'\>(.*?)\<', resp.text)[2], "Incorrect number")
         print("Test 4 OK")
+
     
     def test_5(self):
         resp = requests.post(self.URL, data=self.unvalid_number3)
         self.assertEqual(resp.status_code,500)
         self.assertEqual(re.findall(r'\>(.*?)\<', resp.text)[2], "No such card in database")
         print("Test 5 OK")
+        
 
     def test_6(self):
         resp = requests.get(self.URL2)
