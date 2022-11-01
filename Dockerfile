@@ -4,7 +4,7 @@ WORKDIR /app
 
 COPY . .
 
-RUN pip3 install -r req.txt
+RUN pip3 install -r requirenents.txt
 
 EXPOSE 5000
 
