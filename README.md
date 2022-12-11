@@ -2,4 +2,4 @@
 либо создать имадж
 Тесты лежат в папке tests
 Docker image можно скачать megnar/dockerhub:beb
-123456
+1234567
