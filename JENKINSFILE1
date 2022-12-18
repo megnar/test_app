@@ -1,28 +1,29 @@
 pipeline {
     agent none
     stages {
-    stage ("Parallel") {
-        agent {
-            label 'built-in'
-        }
-        parallel {
-            stage('run app') {
-                agent {
-                    label 'Local2'
-                }
-                steps {
-                    sh 'pip3 install -r requirements.txt'
-                    sh 'python3 main.py'
-                }
+        stage ("Parallel") {
+            agent {
+                label 'built-in'
             }
-            stage('Hello') {
-                agent {
-                    label 'Local'
+            parallel {
+                stage('run app') {
+                    agent {
+                        label 'Local2'
+                    }
+                    steps {
+                        sh 'pip3 install -r requirements.txt'
+                        sh 'python3 main.py'
+                    }
                 }
-                steps {
-                    echo 'Hello World'
-                }
-            } 
+                stage('Hello') {
+                    agent {
+                        label 'Local'
+                    }
+                    steps {
+                        echo 'Hello World'
+                    }
+                } 
+            }
         }
     }
 }
