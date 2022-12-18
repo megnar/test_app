@@ -12,27 +12,21 @@ pipeline {
                         sh 'python3 main.py'
                     }
                 }
-                stage ('cons') {
-                    stage('Test') {
-                        agent {
-                            label 'Local'
-                        }
-                        steps {
-                            sleep 10    
-                            sh 'cd tests'
-                            sh 'python3 -m pytest --alluredir reposts'
-                        }
-                    } 
-                    stage('Hello') {
-                        agent {
-                            label 'Local'
-                        }
-                        steps {
-                            echo "Beb"
-                        }
-                    } 
-                }
+                stage('Test') {
+                    agent {
+                        label 'Local'
+                    }
+                    steps {
+                        sleep 10    
+                        sh 'cd tests'
+                        sh 'python3 -m pytest --alluredir reposts'
+                        sleep 10
+                        sh 'pkill -f main.py'
+                    }
+                } 
             }
         }
     }
 }
+
+
