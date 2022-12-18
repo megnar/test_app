@@ -17,7 +17,7 @@ pipeline {
                         label 'Local'
                     }
                     steps {
-                        sh 'echo "HEllo"'
+                        echo 'hello'
                     }
                 } 
             }
