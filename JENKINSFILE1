@@ -11,7 +11,7 @@ pipeline {
         }
         stage('run app') {
             agent {
-                label 'мастер'
+                label 'built-in'
             }
             steps {
                 sh 'pip3 install -r requirements.txt'
