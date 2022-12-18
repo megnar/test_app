@@ -18,7 +18,8 @@ pipeline {
                     }
                     steps {
                         sleep 10    
-                        sh 'python3 tests/test_api.py'
+                        sh 'cd tests'
+                        sh 'python3 -m pytest --alluredir reposts'
                     }
                 } 
             }
