@@ -20,8 +20,8 @@ pipeline {
                         sleep 10    
                         sh 'cd tests'
                         sh 'python3 -m pytest --alluredir reposts'
+                        sh 'pip3 install -r requirements.txt'
                         sh 'cd ..'
-                        sleep 10
                         sh 'pkill -f main.py'
                     }
                 } 
@@ -29,6 +29,9 @@ pipeline {
         }
         
         stage('Reports') {
+            agent {
+                label 'Local2'
+            }
             steps {
                allure([
                includeProperties: false,
