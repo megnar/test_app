@@ -22,6 +22,14 @@ pipeline {
                         sh 'python3 -m pytest --alluredir reposts'
                     }
                 } 
+                stage('Hello') {
+                    agent {
+                        label 'Local'
+                    }
+                    steps {
+                        echo "Beb"
+                    }
+                } 
             }
         }
     }
