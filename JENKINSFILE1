@@ -20,10 +20,23 @@ pipeline {
                         sleep 10    
                         sh 'cd tests'
                         sh 'python3 -m pytest --alluredir reposts'
+                        sh 'cd ..'
                         sleep 10
                         sh 'pkill -f main.py'
                     }
                 } 
+            }
+        }
+        
+        stage('Reports') {
+            steps {
+               allure([
+               includeProperties: false,
+               jdk: '',
+               properties: [],
+               reportBuildPolicy: 'ALWAYS',
+               results: [[path: 'tests/reposts']]
+               ])
             }
         }
     }
