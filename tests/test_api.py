@@ -11,7 +11,7 @@ class TestAPI(unittest.TestCase):
 
     unvalid_number1 = {"nm": "111"}
     unvalid_number2 = {"nm": "644532445566778899ff"}
-    unvalid_number3 = {"nm": "644532445566778899"}
+    unvalid_number3 = {"nm": "6445324455667788991112131415"}
     URL2 = "http://127.0.0.1:5000/card/111102445566778899"
     URL3 = "http://127.0.0.1:5000/card/111"
     URL4 = "http://127.0.0.1:5000/644532445566778899ff"
