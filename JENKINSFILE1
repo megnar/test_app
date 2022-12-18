@@ -7,6 +7,11 @@ pipeline {
                 echo 'Hello World'
             }
         }
+        stage('download requirements') {
+            steps {
+                sh 'pip3 install -r requirements.txt'
+            }
+        }
         stage('test'){
            steps {
                sh 'python3 main.py'
