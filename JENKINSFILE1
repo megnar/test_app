@@ -17,7 +17,7 @@ pipeline {
                         label 'Local'
                     }
                     steps {
-                        sh 'python3 tests/test_api.py'
+                        sh 'python3 tests/test.py'
                     }
                 } 
             }
