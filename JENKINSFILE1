@@ -17,7 +17,8 @@ pipeline {
                         label 'Local'
                     }
                     steps {
-                        echo 'hello'
+                        sleep 10    
+                        sh 'python3 tests/test_api.py'
                     }
                 } 
             }
