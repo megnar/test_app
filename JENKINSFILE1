@@ -1,14 +1,6 @@
 pipeline {
     agent none
     stages {
-        stage('Hello') {
-            agent {
-                label 'Local'
-            }
-            steps {
-                echo 'Hello World'
-            }
-        }
         stage('run app') {
             agent {
                 label 'built-in'
@@ -18,5 +10,13 @@ pipeline {
                 sh 'python3 main.py'
             }
         }
+        stage('Hello') {
+            agent {
+                label 'Local'
+            }
+            steps {
+                echo 'Hello World'
+            }
+        } 
     }
 }
