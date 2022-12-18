@@ -43,9 +43,12 @@ pipeline {
             }
         }
         stage('SonarQube analysis') {
-          steps {
-            withSonarQubeEnv('sonar') {
-              sh 'sonar-scanner'
+            agent {
+                label 'Local'
+            }
+            steps {
+                withSonarQubeEnv('sonar') {
+                  sh 'sonar-scanner'
             }
           }
        }
