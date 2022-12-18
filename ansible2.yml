@@ -1,0 +1,38 @@
+---
+- hosts: localhost
+  become: true
+  vars:
+    create_containers: 1
+          
+  tasks:
+    - name: Install Docker Module for Python
+      pip:
+        name: docker
+    - name: Clone repository
+      git:
+        repo: https://github.com/megnar/test_app
+        dest: ./test_app
+        clone: yes
+        update: yes
+    - name: Create image
+      docker_image:
+        name: 'myapp:latest'
+        source: build
+        build:
+          path: ./test_app
+        state: present
+    - name: Create container
+      docker_container:
+        name: app_host
+        image: myapp:latest
+        state: started
+        ports: "5000:5000"
+      with_sequence: count={{ create_containers }}
+    - name: Recursively remove directory
+      ansible.builtin.file:
+        path: ./test_app
+        state: absent
+      # - name: Clean app directory
+      #file:
+      #  path: ./test_app
+      #  state: absent
