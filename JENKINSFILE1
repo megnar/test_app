@@ -48,7 +48,7 @@ pipeline {
             }
             steps {
                 withSonarQubeEnv('sonar') {
-                  sh 'sonar-scanner'
+                  sh '/var/opt/sonar-scanner-4.7.0.2747-linux/bin/sonar-scanner'
             }
           }
        }
