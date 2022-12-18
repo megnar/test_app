@@ -1,20 +1,18 @@
 pipeline {
-    agent {
-        label 'мастер'
-    }
-    stages {
-        stage('Hello') {
-            steps {
-                echo 'Hello World'
+    node(){
+        stages {
+            stage('Hello') {
+                steps {
+                    echo 'Hello World'
+                }
+            }
+            stage('run app') {
+                agent {
+                    label
+                }
+                steps {
+                    sh 'pip3 install -r requirements.txt'
+                }
             }
         }
-        stage('run app') {
-            agent {
-                label 'мастер'
-            }
-            steps {
-                sh 'pip3 install -r requirements.txt'
-            }
-        }
-    }
 }
