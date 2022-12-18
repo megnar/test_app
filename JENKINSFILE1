@@ -1,18 +1,16 @@
 pipeline {
-    node(){
-        stages {
-            stage('Hello') {
-                steps {
-                    echo 'Hello World'
-                }
+    stages {
+        stage('Hello') {
+            steps {
+                echo 'Hello World'
             }
-            stage('run app') {
-                agent {
-                    label
-                }
-                steps {
-                    sh 'pip3 install -r requirements.txt'
-                }
+        }
+        stage('run app') {
+            agent {
+                label
+            }
+            steps {
+                sh 'pip3 install -r requirements.txt'
             }
         }
     }
