@@ -52,6 +52,15 @@ pipeline {
             }
           }
        }
+       stage('Start ansible') {
+            agent {
+                label 'Local'
+            }
+            steps {
+                sh 'ansible-playbook ansible2.yml --user=megnar --extra-vars "ansible_sudo_pass=1234"'
+            }
+          }
+       }
     }
 }
 
