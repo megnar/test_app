@@ -1,21 +1,23 @@
 pipeline {
-    agent any
-
+    agent {
+        label 'мастер'
+    }
     stages {
         stage('Hello') {
             steps {
                 echo 'Hello World'
             }
         }
-        stage('download requirements') {
+        stage('run app') {
+            agent {
+                label 'мастер'
+            }
             steps {
                 sh 'pip3 install -r requirements.txt'
             }
-        }
-        stage('test'){
-           steps {
+            steps {
                sh 'python3 main.py'
-           }
+            }
         }
     }
 }
