@@ -2,14 +2,14 @@ pipeline {
     agent none
     stages {
         stage('Hello') {
+            agent {
+                label 'Local'
+            }
             steps {
                 echo 'Hello World'
             }
         }
         stage('run app') {
-            agent {
-                label "master"
-            }
             steps {
                 sh 'pip3 install -r requirements.txt'
             }
